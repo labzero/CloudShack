@@ -7,3 +7,4 @@ erl_crash.dump
 dxcc.json.gz
 settings.ets
 /tools/**/target
+.idea

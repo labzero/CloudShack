@@ -9,7 +9,6 @@ module.exports = {
         vendor: "./app/vendor.ts"
     },
     cache: true,
-    debug: true,
     output: {
         path: path.join(__dirname, "../priv/static"),
         filename: "js/[name].bundle.js",
@@ -17,11 +16,11 @@ module.exports = {
         chunkFilename: "js/[id].chunk.js"
     },
     resolve: {
-        root: [ path.join(__dirname, "app") ],
-        extensions: ["", ".ts", ".js"]
+        modules: [ path.resolve("app") ],
+        extensions: [".ts", ".js", ""]
     },
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(true),
+        new webpack.optimize.OccurrenceOrderPlugin(true),
         new webpack.optimize.CommonsChunkPlugin({ name: ["app", "vendor"], minChunks: Infinity }),
         new ExtractTextPlugin("[name].css"),
         new CopyWebpackPlugin([
@@ -30,7 +29,7 @@ module.exports = {
         ])
     ],
     module: {
-        loaders: [
+        rules: [
             { test: /\.ts$/, loaders: ["awesome-typescript-loader", "angular2-template-loader", "angular2-router-loader"] },
             { test: /\.css$/, loaders: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader") },
             { test: /\.less$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!less-loader") },
@@ -52,11 +51,11 @@ module.exports = {
         ]
     },
     node: {
-        global: 1,
+        global: true,
         crypto: "empty",
-        module: 0,
-        Buffer: 0,
-        clearImmediate: 0,
-        setImmediate: 0
+        module: false,
+        Buffer: false,
+        clearImmediate: false,
+        setImmediate: false
     }
 };

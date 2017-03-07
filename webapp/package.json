@@ -2,7 +2,7 @@
   "name": "cloudshack",
   "version": "0.5.0",
   "scripts": {
-    "build": "webpack --inline --colors --progress --display-error-details --display-cached",
+    "build": "webpack --colors --progress --display-error-details --display-cached",
     "watch": "npm run build -- --watch"
   },
   "devDependencies": {
