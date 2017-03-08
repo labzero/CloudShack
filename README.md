@@ -38,6 +38,10 @@ mix deps.get && mix compile && mix release
 ./rel/cloudshack/bin/cloudshack console
 ```
 
+CloudShack should now be running on port 7373
+
+http://localhost:7373
+
 ## License
 
 Copyright (C) 2014-2016 Thomas Gatzweiler, DL2IC
